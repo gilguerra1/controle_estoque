@@ -11,5 +11,5 @@ class CategoryCreateListView(generics.ListCreateAPIView):
 
 class CategoryRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 
-    queryset =  Category.objects.all()
+    queryset = Category.objects.all()
     serializer_class = CategorySerializer

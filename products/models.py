@@ -18,10 +18,7 @@ class Product(models.Model):
 
 
 class ProductInventory(models.Model):
-    
+
     product = models.ForeignKey('products.Product', on_delete=models.PROTECT, related_name='inventory_product')
     product_quantity = models.IntegerField()
     created_at = models.DateTimeField(auto_now_add=True)
-
-    
-    

@@ -3,6 +3,7 @@ from django.dispatch import receiver
 from django.apps import apps
 from .models import StockMovement
 
+
 @receiver(post_save, sender=StockMovement)
 def product_inventory_update(sender, instance, created, **kwargs):
     if created:

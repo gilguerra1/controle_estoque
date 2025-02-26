@@ -31,5 +31,5 @@ class StockMovementSerializer(serializers.ModelSerializer):
         elif movement_type == 'PURCHASE' and value < 0:
 
             raise serializers.ValidationError('A quantidade de compra não pode ser negativa.')
-        
+
         return value
