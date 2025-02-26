@@ -17,6 +17,7 @@ def product_inventory_email(subject, message):
     msg['From'] = EMAIL_REMETENTE
     msg['To'] = EMAIL_DESTINATARIO
     msg['Subject'] = subject
+    msg['Reply-To'] = EMAIL_REMETENTE
 
     msg.attach(MIMEText(message, 'html'))
 

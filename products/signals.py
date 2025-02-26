@@ -1,5 +1,5 @@
 import smtplib
-from venv import logger
+import logging
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from movements.models import StockMovement
@@ -7,9 +7,11 @@ from products.models import ProductInventory
 from .emails import product_inventory_email
 
 
+logger = logging.getLogger(__name__)
+
 @receiver(post_save, sender=StockMovement)
 def alert_stock_quantity(sender, instance, created, **kwargs):
-    if created and instance.movement_type == 'SALE':
+    if created or instance.movement_type == 'SALE':
         try:
             inventory = ProductInventory.objects.get(product=instance.product)
             
